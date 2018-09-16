@@ -2,17 +2,22 @@ package pl.skill.homebudget.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
+//@Entity
 public class Expense {
 
+//    @Id
+//    @GeneratedValue
     private Long id;
+
     private BigDecimal expenseAmount;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String title;
 
     private String expansePlace;
@@ -97,10 +102,9 @@ public class Expense {
     public Expense() {
     }
 
-    public Expense(Long id, BigDecimal expenseAmount, String title, String expansePlace,
+    public Expense(BigDecimal expenseAmount, String title, String expansePlace,
                    ExpenseCategory expenseCategory, boolean isDeleted, LocalDate expenseDate,
                    LocalDateTime creationDateTime, PaymentMethod paymentMethod) {
-        this.id = id;
         this.expenseAmount = expenseAmount;
         this.title = title;
         this.expansePlace = expansePlace;
